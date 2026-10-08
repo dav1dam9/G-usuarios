@@ -7,7 +7,7 @@ const port = 3000;
 require('./database');
 
 // Middlewares (deben ir ANTES de las rutas)
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 // IMPORTAR Y USAR LAS RUTAS DE EMPLEADOS
