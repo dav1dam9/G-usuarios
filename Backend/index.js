@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 // Importar conexión a la base de datos
-require('./database');
+require('./database.js');
 
 // Middlewares (deben ir ANTES de las rutas)
 app.use(cors({ origin: '*' }));
