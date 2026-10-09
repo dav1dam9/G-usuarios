@@ -11,13 +11,18 @@ app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 // IMPORTAR Y USAR LAS RUTAS DE EMPLEADOS
-const empleadoRoutes = require('./routes/empleado.routes.js');
+const empleadoRoutes = require('./routes/empleado.routes');
 app.use('/api/empleados', empleadoRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Hablalo!');
+    res.send('Hablalo!');
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+// En local levanta el puerto normal, en producción Vercel lo toma con el export
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`Example app listening on port ${port}`);
+    });
+}
+
+module.exports = app;
