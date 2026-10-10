@@ -9,7 +9,7 @@ export class EmpleadoService {
 
    selectedEmpleado: Empleado;
    empleados: Empleado[];
-   readonly URL_API = 'https://g-usuarios-wjt1-gnc76u31v-sant19.vercel.app/api/empleados';
+   readonly URL_API = 'https://g-usuarios-wjt1-4bo9bs1xn-sant19.vercel.app/api/empleados';
  
 
    constructor(private http: HttpClient) {
