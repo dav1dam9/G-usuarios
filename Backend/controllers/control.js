@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/empleado.model');
 
-// 1. OBTENER TODOS LOS POSTS (GET)
+
 router.get('/', async (req, res) => {
     try {
         const posts = await Post.find();
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// 2. GUARDAR UN NUEVO POST (POST)
+
 router.post('/', async (req, res) => {
     const post = new Post({
         name: req.body.name,
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// 3. OBTENER UN POST ESPECÍFICO POR ID (GET)
+
 router.get('/:postId', async (req, res) => {
     try {
         const post = await Post.findById(req.params.postId);
@@ -35,9 +35,8 @@ router.get('/:postId', async (req, res) => {
     } catch (error) {
         res.json({ message: error.message });
     }
-}); // <-- AQUÍ SE CIERRA EL GET ESPECÍFICO
+}); 
 
-// 4. ACTUALIZAR UN POST POR ID (PATCH)
 router.patch('/:postId', async (req, res) => {
     try {
         const updatedPost = await Post.updateOne(
@@ -50,7 +49,7 @@ router.patch('/:postId', async (req, res) => {
     }
 });
 
-// 5. ELIMINAR UN POST POR ID (DELETE)
+
 router.delete('/:postId', async (req, res) => {
     try {
         const removedPost = await Post.deleteOne({ _id: req.params.postId });
