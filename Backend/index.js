@@ -5,7 +5,7 @@ const port = 3000;
 
 require('./database.js');
 
-// CORS ultra permisivo para producción en Vercel
+
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
